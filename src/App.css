@@ -1,38 +1,136 @@
-.App {
+.main {
   text-align: center;
+  margin-top: 50px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.quantity {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.quantity a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.quantity .quantity-minus {
+  margin-right: 10px;
+}
+
+.quantity .quantity-plus {
+  margin-left: 10px;
+}
+
+.quantity span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quantity input {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.quantity a:hover {
+  background-color: #ccc;
+}
+
+.quantity input:focus {
+  outline: none;
+  border-color: #777;
+  box-shadow: 0 0 5px rgba(119, 119, 119, 0.5);
+}
+body {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.stars:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  animation: stars 2s infinite;
+}
+
+@keyframes stars {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
   }
 }
+
+.stars:after {
+  background-color: #fff;
+  box-shadow: 0 0 2px 2px #fff;
+  border-radius: 50%;
+}
+
+/* Adjust the size and density of the stars */
+.stars:after {
+  width: 2px;
+  height: 2px;
+}
+
+@media screen and (min-width: 768px) {
+  .stars:after {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .stars:after {
+    width: 4px;
+    height: 4px;
+  }
+}
+
